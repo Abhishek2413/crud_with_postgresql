@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD_POSTGRESQL</title>
+</head>
+<body>
+
+    <center>
+         <h1>Edit Employee details Using postgresql</h1>
+         <h3>Django Web Tutorial</h3>
+         <hr/>
+         <form method="POST" action="/Update/{{EmpModel.id}}">
+            {% csrf_token %}
+         <table border="1">
+
+            <tr>
+                <td>Employee ID</td>
+                <td><input type="text"  name="id" value="{{EmpModel.id}}" readonly></td>
+            </tr>
+
+            <tr>
+                <td>Employee Name</td>
+                <td><input type="text" name="empname" value="{{EmpModel.empname}}"></td>
+            
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" value="{{EmpModel.email}}"></td>
+            
+            </tr>
+            <tr>
+                <td>Occupation</td>
+                <td><input type="text" name="occuapation" value="{{EmpModel.occuapation}}"></td>
+            
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td><input type="text" name="salary" value="{{EmpModel.salary}}"></td>
+            
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="text" name="gender" value="{{EmpModel.gender}}"></td>
+            
+            </tr>
+            <tr>
+                
+                <td><input type="submit"  value="Update Record"></td>
+                <td>
+                    {% if messages %}
+                    {% for mess in  messages %}
+                    <b style="color: green;">{{mess}}</b>
+                    
+           
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            
+            </tr>
+            
+         </table>
+         <a href="{% url 'showemp' %}">Home Page</a>
+         </form>
+               
+        
+    </center>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD_POSTGRESQL</title>
+</head>
+<body>
+
+    <center>
+         <h1>CRUD operation With Postgresql</h1>
+         <h3>Django Web Tutorial</h3>
+         <hr/>
+         <a href="{% url 'Insertemp'  %}">Add New Employee </a>
+         <table border="1">
+             <tr>
+                 <th>Employee ID</th>
+                 <th>Employee Name</th>
+                 <th>Email</th>
+                 <th>Occupation</th>
+                 <th>Salary</th>
+                 <th>Gender</th>
+                 <th>Edit</th>
+                 <th>Delete</th>
+             </tr>
+    
+
+            {% for res in data %}
+             <tr>
+                 <td>{{res.id}}</td>
+                 <td>{{res.empname}}</td>
+                 <td>{{res.email}}</td>
+                 <td>{{res.occuapation}}</td>
+                 <td>{{res.salary}}</td>
+                 <td>{{res.gender}}</td>
+                 <td><a href="Edit/{{res.id}}">Edit</a></td>
+                 <td><a href="Delete/{{res.id}}" onclick="return confirm('Are your Sure Want to delete record')">Delete</a></td>
+
+             </tr>
+            {% endfor %}
+
+         </table>
+    </center>
+    
+</body>
+</html>
